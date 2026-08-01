@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Календар циклу</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1>Календар циклу</h1>
+      <button id="settings-toggle" class="icon-btn" type="button" aria-label="Налаштування" title="Налаштування">⚙️</button>
+    </header>
+
+    <section id="settings-panel" class="settings-panel" hidden>
+      <form id="settings-form">
+        <div class="field">
+          <label for="start-date">Дата початку останнього циклу</label>
+          <input type="date" id="start-date" name="start-date" required />
+        </div>
+
+        <div class="field">
+          <label for="cycle-length">Тривалість циклу (днів)</label>
+          <input type="number" id="cycle-length" name="cycle-length" min="15" max="45" value="28" required />
+        </div>
+
+        <div class="field">
+          <label for="period-length">Тривалість менструації (днів)</label>
+          <input type="number" id="period-length" name="period-length" min="1" max="15" value="5" required />
+        </div>
+
+        <fieldset class="colors-field">
+          <legend>Кольори</legend>
+
+          <div class="color-field">
+            <label for="color-period">Менструація</label>
+            <input type="color" id="color-period" name="color-period" value="#F7C6D9" />
+          </div>
+
+          <div class="color-field">
+            <label for="color-ovulation">Овуляція</label>
+            <input type="color" id="color-ovulation" name="color-ovulation" value="#D9C6F7" />
+          </div>
+
+          <div class="color-field">
+            <label for="color-fertile">Фертильне вікно</label>
+            <input type="color" id="color-fertile" name="color-fertile" value="#C6E2F7" />
+          </div>
+
+          <div class="color-field">
+            <label for="color-normal">Звичайні дні</label>
+            <input type="color" id="color-normal" name="color-normal" value="#FCEFC7" />
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="primary-btn">Зберегти</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="empty-state" class="empty-state" hidden>
+      <p>Введіть дані про свій цикл, щоб побачити календар.</p>
+    </section>
+
+    <section id="calendar-section" class="calendar-section" hidden>
+      <div class="legend">
+        <span class="legend-item"><span class="legend-swatch" id="legend-period"></span>Менструація</span>
+        <span class="legend-item"><span class="legend-swatch" id="legend-ovulation"></span>Овуляція</span>
+        <span class="legend-item"><span class="legend-swatch" id="legend-fertile"></span>Фертильне вікно</span>
+        <span class="legend-item"><span class="legend-swatch" id="legend-normal"></span>Звичайний день</span>
+      </div>
+
+      <div class="weekdays">
+        <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Нд</span>
+      </div>
+
+      <div id="calendar-grid" class="calendar-grid"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

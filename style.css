@@ -13,6 +13,7 @@
   --shadow: 0 4px 16px rgba(20, 20, 40, 0.06);
   --shadow-lg: 0 12px 32px rgba(20, 20, 40, 0.14);
   --accent: #b79bf0;
+  --accent-glow: rgba(183, 155, 240, 0.4);
   --radius: 16px;
 
   /* Клітинки днів завжди мають пастельний (світлий) фон незалежно від теми,
@@ -30,6 +31,7 @@
     --shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
     --accent: #9a7ce0;
+    --accent-glow: rgba(154, 124, 224, 0.5);
   }
 }
 
@@ -301,8 +303,9 @@ body {
 }
 
 .day-cell.today {
-  outline: 2px solid var(--cell-text);
-  outline-offset: -2px;
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+  box-shadow: 0 0 0 4px var(--accent-glow);
   font-weight: 700;
 }
 

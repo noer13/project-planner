@@ -52,6 +52,11 @@
             <label for="color-normal">Звичайні дні</label>
             <input type="color" id="color-normal" name="color-normal" value="#FCEFC7" />
           </div>
+
+          <div class="color-field">
+            <label for="color-safe">Безпечні дні</label>
+            <input type="color" id="color-safe" name="color-safe" value="#C6F7D9" />
+          </div>
         </fieldset>
 
         <div class="form-actions">
@@ -65,11 +70,18 @@
     </section>
 
     <section id="calendar-section" class="calendar-section" hidden>
+      <div class="cycle-nav">
+        <button id="prev-cycle" class="nav-btn" type="button" aria-label="Попередній цикл">◀</button>
+        <button id="cycle-label" class="cycle-label" type="button" title="Повернутися до поточного циклу"></button>
+        <button id="next-cycle" class="nav-btn" type="button" aria-label="Наступний цикл">▶</button>
+      </div>
+
       <div class="legend">
         <span class="legend-item"><span class="legend-swatch" id="legend-period"></span>Менструація</span>
         <span class="legend-item"><span class="legend-swatch" id="legend-ovulation"></span>Овуляція</span>
         <span class="legend-item"><span class="legend-swatch" id="legend-fertile"></span>Фертильне вікно</span>
         <span class="legend-item"><span class="legend-swatch" id="legend-normal"></span>Звичайний день</span>
+        <span class="legend-item"><span class="legend-swatch" id="legend-safe"></span>Безпечний день</span>
       </div>
 
       <div class="weekdays">
@@ -78,6 +90,15 @@
 
       <div id="calendar-grid" class="calendar-grid"></div>
     </section>
+  </div>
+
+  <div id="day-detail-backdrop" class="day-detail-backdrop" hidden></div>
+  <div id="day-detail" class="day-detail" hidden role="dialog" aria-modal="true">
+    <div class="day-detail-handle"></div>
+    <button id="day-detail-close" class="day-detail-close" type="button" aria-label="Закрити">✕</button>
+    <p id="day-detail-date" class="day-detail-date"></p>
+    <p id="day-detail-phase" class="day-detail-phase"></p>
+    <button id="day-detail-set-start" class="day-detail-action" type="button">Позначити початок циклу тут</button>
   </div>
 
   <script src="script.js"></script>
